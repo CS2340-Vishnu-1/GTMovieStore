@@ -11,6 +11,21 @@
           template_data.movie.description }}</p>
         <p><b>Price:</b> ${{
           template_data.movie.price }}</p>
+          <h2>Reviews</h2>
+            <hr />
+            <ul class="list-group">
+              {% for review in template_data.reviews %}
+              <li class="list-group-item pb-3 pt-3">
+                <h5 class="card-title">
+                  Review by {{ review.user.username }}
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  {{ review.date }}
+                </h6>
+                <p class="card-text">{{ review.comment }}</p>
+              </li>
+              {% endfor %}
+            </ul>
           {% if user.is_authenticated %}
             <div class="container mt-4">
               <div class="row justify-content-center">
